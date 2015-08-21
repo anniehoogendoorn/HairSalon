@@ -5,10 +5,10 @@
     </head>
     <body>
         <div class='container'>
-            <h1>{{ stylist.getName }}</h1>
+            <h1>Stylist {{ stylist.getName }}</h1>
 
             {% if clients is not empty %}
-                <p>Here are your clients:</p>
+                <p>Here are the clients:</p>
                 <ul>
                     {% for client in clients %}
                         <li>{{ client.getName }}</li>
