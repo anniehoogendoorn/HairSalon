@@ -80,6 +80,24 @@
             $this->assertEquals([$test_stylist, $test_stylist2], $result);
         }
 
+        function test_deleteAll()
+        {
+            //Arrange
+            $name = "Stylist1";
+            $name2 = "Stylist2";
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+            $test_stylist2 = new Stylist($name2);
+            $test_stylist2->save();
+
+            //Act
+            Stylist::deleteAll();
+            $result = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
 
     }
 
