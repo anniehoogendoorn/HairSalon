@@ -5,7 +5,7 @@
     </head>
     <body>
         <div class='container'>
-            <h1>Your Hair Salon's Stylists</h1>
+            <h1>Your Stylists</h1>
 
             <p>Add a new stylist:</p>
 
@@ -22,7 +22,7 @@
             </form>
 
             {% if stylists is not empty %}
-                <p>Here are all of your stylist types:</p>
+                <p>Here are all of your stylists:</p>
                 <ul>
                     {% for stylist in stylists %}
                         <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>

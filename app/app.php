@@ -23,7 +23,11 @@
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
-    
+    $app->post("/stylists", function() use ($app) {
+        $stylist = new Stylist($_POST['name']);
+        $stylist->save();
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
 
     return $app;
 
