@@ -1,11 +1,10 @@
 <?php
 
     require_once __DIR__."/../vendor/autoload.php";
+    // require_once __DIR__."/../src/Client.php";
     require_once __DIR__."/../src/Stylist.php";
-    require_once __DIR__."/../src/Client.php";
 
     $app = new Silex\Application();
-
 
     $server = 'mysql:host=localhost;dbname=hair_salon';
     $username = 'root';
@@ -21,7 +20,7 @@
     Request::enableHttpMethodParameterOverride();
 
     $app->get("/", function() use ($app){
-        return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
 ?>
