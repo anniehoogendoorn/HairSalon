@@ -16,8 +16,8 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
-    // use Symfony\Component\HttpFoundation\Request;
-    // Request::enableHttpMethodParameterOverride();
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
 
     $app->get("/", function() use ($app){
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
@@ -60,6 +60,22 @@
     //     $stylist = Stylist::find($id);
     //     return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
     // });
+
+    //This route is not working yet!
+    $app->get("/stylists/{id}/edit", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        return $app['twig']->render('stylist_edit.html.twig', array('stylist' => $stylist));
+    });
+
+    //So...don't know if this is working
+    $app->patch("/stylists/{id}", function($id) use ($app) {
+        $name = $_POST['name'];
+        $stylist = Stylist::find($id);
+        $stylist->update($name);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'stylists' => $stylist->getClients()));
+    });
+
+
 
 
 
