@@ -18,7 +18,7 @@
 
         protected function tearDown()
         {
-
+            Stylist::deleteAll();
         }
 
         function test_getName()
@@ -33,6 +33,20 @@
 
             //Assert
             $this->assertEquals($name, $result);
+        }
+
+        function test_getId()
+        {
+            //Arrange
+            $name = "Stylist1";
+            $id = 1;
+            $test_stylist = new Stylist($name, $id);
+
+            //Act
+            $result = $test_stylist->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
         }
 
 

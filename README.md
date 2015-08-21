@@ -6,7 +6,7 @@
 
 ## Description
 
-Allows a hair salon to add and save stylist names and the clients linked to each stylist. Names can also be updated or deleted.
+An app for a hair salon. Allows the owner to add a list of their stylists, and for each stylist, add clients who see that stylist. Names can also be updated or deleted.
 
 ##Setup
 
