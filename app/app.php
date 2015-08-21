@@ -39,7 +39,6 @@
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' =>$stylist->getClients()));
     });
 
-
     $app->post("/clients", function() use ($app) {
         $name = $_POST['name'];
         $stylist_id = $_POST['stylist_id'];
@@ -48,6 +47,23 @@
         $stylist = Stylist::find($stylist_id);
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' =>$stylist->getClients()));
     });
+
+    //Am sending the user to the index page for now, don't know how to stay on stylist page yet
+    $app->post("/delete_clients", function() use ($app) {
+        Client::deleteAll();
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
+    //How to possibly stay on stylist page after deleting clients, want to figure this out later
+    // $app->post("/stylists/{id}/delete_clients", function($id) use ($app) {
+    //     Client::deleteAll();
+    //     $stylist = Stylist::find($id);
+    //     return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
+    // });
+
+
+
+
 
     return $app;
 
