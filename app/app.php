@@ -6,7 +6,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=hair_salon';
+    $server = 'mysql:host=localhost:8889;dbname=hair_salon';
     $username = 'root';
     $password = 'root';
     //setting up connection to our database
@@ -61,7 +61,6 @@
     //     return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
     // });
 
-    //This route is not working yet!
     $app->get("/stylists/{id}/edit", function($id) use ($app) {
         $stylist = Stylist::find($id);
         return $app['twig']->render('stylist_edit.html.twig', array('stylist' => $stylist));
