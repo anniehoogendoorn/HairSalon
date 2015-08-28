@@ -80,12 +80,14 @@
         return $app['twig']->render('client_edit.html.twig', array('client' => $client));
     });
 
-    // $app->patch("/client/{id}", function($id) use ($app) {
-    //     $new_name = $_POST['name'];
-    //     $client = Client::find($id);
-    //     $client->update($name);
-    //     return $app['twig']->render('stylist.html.twig', array('clients' =>$stylist=>getClients());
-    // });
+    //Update one specific client
+    $app->patch("/client/{id}", function($id) use ($app) {
+        $new_name = $_POST['name'];
+        $client_to_update = Client::find($id);
+        $client_to_update->update($new_name);
+        $stylist = Stylist::find($client_to_update->getStylistId());
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
 
     //Delete one specific client and returns stylist page
     $app->delete('/client/{id}', function($id) use($app) {
