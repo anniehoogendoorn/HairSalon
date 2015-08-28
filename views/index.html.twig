@@ -5,7 +5,7 @@
     </head>
     <body>
         <div class='container'>
-            <h1>Your Stylists</h1>
+            <h1>Hair Salon</h1>
 
             <p>Add a new stylist:</p>
 
@@ -25,7 +25,7 @@
                 <p>Here are all of your stylists:</p>
                 <ul>
                     {% for stylist in stylists %}
-                        <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                        <li><a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}

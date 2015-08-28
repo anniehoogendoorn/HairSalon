@@ -12,6 +12,7 @@
                 <ul>
                     {% for client in clients %}
                         <li>{{ client.getName }}</li>
+                        <li><a href='/client/{{ client.getId }}/edit'>Edit this client</a></li>
                     {% endfor %}
                 </ul>
             {% endif %}
@@ -36,7 +37,7 @@
                 <button type='submit' class='btn btn-danger'>Clear clients</button>
             </form>
 
-            <p><a href="/stylists/{{ stylist.getId }}/edit">Edit this stylist</a></p>
+            <p><a href="/stylist/{{ stylist.getId }}/edit">Edit this stylist</a></p>
 
             <p><a href='/'>Home</a></p>
         </div>

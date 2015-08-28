@@ -1,13 +1,13 @@
 <html>
     <head>
-        <title>Edit Stylist</title>
+        <title>Update Stylist</title>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
     </head>
     <body>
         <div class='container'>
-            <h1>Update Stylist {{ stylist.getName }}</h1>
+            <h1>Edit Stylist {{ stylist.getName }}</h1>
 
-            <form action="/stylists/{{ stylist.getId }}" method="post" class="form-inline">
+            <form action="/stylist/{{ stylist.getId }}" method="post" class="form-inline">
                 <div class="form-group">
                     <input name="_method" type="hidden" value="patch">
 
@@ -15,13 +15,13 @@
                     <input id='name' name='name' class='form-control' type='text'>
                 </div>
 
-                <button type='submit'>Update</button>
+                <button type='submit' class="btn btn-default">Update</button>
             </form>
 
-            <form action="/stylists/{{ stylist.getId }}" method="post">
+            <form action="/stylist/{{ stylist.getId }}" method="post">
                 <input name="_method" type="hidden" value="delete">
 
-                <button type="submit" class="btn btn-danger">Delete this stylist</button>
+                <button type="submit" class="btn btn-danger">Delete stylist</button>
             </form>
 
         </div>
