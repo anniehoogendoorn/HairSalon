@@ -104,19 +104,6 @@
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
-    //How to possibly stay on stylist page after deleting clients, want to figure this out later
-    // $app->post("/stylists/{id}/delete_clients", function($id) use ($app) {
-    //     Client::deleteAll();
-    //     $stylist = Stylist::find($id);
-    //     return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
-    // });
-
-
-
-
-
-
-
 
 
     return $app;

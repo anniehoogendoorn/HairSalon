@@ -71,8 +71,7 @@
             }
             return $found_client;
         }
-        //
-        // //Copied it from  Stylist.php but not sure if I need this one here
+        
         function update($new_name)
         {
             $GLOBALS['DB']->exec("UPDATE clients SET name = '{$new_name}' WHERE id = {$this->getId()};");

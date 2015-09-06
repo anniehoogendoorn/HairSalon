@@ -10,7 +10,7 @@ An app for a hair salon. Allows the owner to add a list of their stylists, and f
 
 ##Setup
 
-1. Clone this repository using the command `git clone [link-to-your-repository]`.
+1. Clone this repository using the command `git clone https://github.com/anniehoogendoorn/HairSalon.git`.
 2. Change directory into the top level of the project folder.
 3. Install Composer (https://getcomposer.org) and then run the command `composer install` to download the Silex and Twig vendor files.
 4. Change directory into the `web` folder and start your server. For example, using PHP’s built-in server: `php -S localhost:8000`
