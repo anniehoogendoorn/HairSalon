@@ -6,6 +6,16 @@
     <body>
         <div class='container'>
             <h1>Hair Salon</h1>
+            {% if stylists is not empty %}
+                <p>Here are all of your stylists:</p>
+                <ul>
+                    {% for stylist in stylists %}
+                        <li><a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You have no stylists yet!</p>
+            {% endif %}
 
             <p>Add a new stylist:</p>
 
@@ -21,16 +31,6 @@
                 <button type='submit' class='btn btn-danger'>Clear</button>
             </form>
 
-            {% if stylists is not empty %}
-                <p>Here are all of your stylists:</p>
-                <ul>
-                    {% for stylist in stylists %}
-                        <li><a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>You have no stylists yet!</p>
-            {% endif %}
         </div>
     </body>
 </html>

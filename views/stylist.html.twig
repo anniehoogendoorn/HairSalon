@@ -19,16 +19,13 @@
 
             <h4>Add a client</h4>
 
-            <form action='/clients' method='post' class="form-inline">
+            <form action='/stylist/{id}/add_client' method='post' class="form-inline">
                 <div class='form-group'>
 
                     <input id='stylist_id' name='stylist_id' type='hidden' value='{{ stylist.getId }}'>
                     <label for='name'>Client Name</label>
                     <input id='name' name='name' class='form-control' type='text'>
                 </div>
-
-                    <!-- <label for='rating'>Restaurant Rating:</label>
-                    <input id='rating' name='rating' type='number'> -->
 
                 <button type='submit' class='btn btn-info'>Add client</button>
             </form>

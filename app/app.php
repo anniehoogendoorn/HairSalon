@@ -50,22 +50,22 @@
     });
 
     //Update a specific stylist
-    $app->patch("/stylist/{id}", function($id) use ($app) {
-        $name = $_POST['name'];
+    $app->patch("/stylist/{id}/update", function($id) use ($app) {
         $stylist = Stylist::find($id);
+        $name = $_POST['name'];
         $stylist->update($name);
-        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'stylists' => $stylist->getClients()));
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
     //Delete a specific stylist
-    $app->delete("/stylist/{id}", function ($id) use ($app) {
+    $app->delete("/stylist/{id}/delete", function ($id) use ($app) {
         $stylist = Stylist::find($id);
         $stylist->delete();
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
     //Add client to specific stylist
-    $app->post("/clients", function() use ($app) {
+    $app->post("/stylist/{id}/add_client", function() use ($app) {
         $name = $_POST['name'];
         $stylist_id = $_POST['stylist_id'];
         $client = new Client($_POST['name'], $id = null, $stylist_id);
@@ -81,7 +81,7 @@
     });
 
     //Update one specific client
-    $app->patch("/client/{id}", function($id) use ($app) {
+    $app->patch("/client/{id}/update", function($id) use ($app) {
         $new_name = $_POST['name'];
         $client_to_update = Client::find($id);
         $client_to_update->update($new_name);
@@ -90,7 +90,7 @@
     });
 
     //Delete one specific client and returns stylist page
-    $app->delete('/client/{id}', function($id) use($app) {
+    $app->delete('/client/{id}/delete', function($id) use($app) {
         $client = Client::find($id);
         $stylist = Stylist::find($client->getStylistId());
         $client->delete();
